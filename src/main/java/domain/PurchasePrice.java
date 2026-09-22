@@ -2,7 +2,7 @@ package domain;
 
 // 구입 금액 원시값 포장
 public class PurchasePrice {
-  private int amount;
+  private final int amount;
 
   public PurchasePrice(String input) {
     this.amount = parseToInt(input);
