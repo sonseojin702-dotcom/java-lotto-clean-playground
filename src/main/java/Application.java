@@ -17,7 +17,7 @@ public class Application {
 
     List<Lotto> lottos = new ArrayList<>();
     for (int i = 0; i < count; i++) {
-      List<Integer> numbers = numberGenerator.generate();
+      List<LottoNumber> numbers = numberGenerator.generate();
       Lotto lotto  = new Lotto(numbers);
       lottos.add(lotto);
     }
@@ -25,5 +25,4 @@ public class Application {
     Lottos output = new Lottos(lottos);
     outputView.printLottos(output);
   }
-
 }
