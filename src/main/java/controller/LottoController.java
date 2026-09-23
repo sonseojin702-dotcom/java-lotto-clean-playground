@@ -1,6 +1,7 @@
 package controller;
 
 import domain.*;
+import dto.ResultDto;
 import java.util.ArrayList;
 import java.util.List;
 import view.InputView;
@@ -11,24 +12,32 @@ public class LottoController {
   private final OutputView outputView = new OutputView();
 
   public void run() {
-    String value = inputView.getPurchasePrice();
-    PurchasePrice purchasePrice = new PurchasePrice(value);
-    int count = purchasePrice.calculateLottoCount(); //로또 개수
+    PurchasePrice purchasePrice = new PurchasePrice(inputView.getPurchasePrice());
+    Lottos lottos = createLottos(purchasePrice.calculateLottoCount());
+    outputView.printLottos(lottos);
 
+    Lotto winningNumbers = toLotto(inputView.getWinningNumbers());
+    LottoResult result = lottos.getMatchCount(winningNumbers, purchasePrice);
+    outputView.printResult(createResultDto(result));
+  }
+
+  private Lottos createLottos(int count) {
     NumberGenerator numberGenerator = new RandomNumberGenerator();
-
-    List<Lotto> lottos = new ArrayList<>();
+    List<Lotto> lottoList = new ArrayList<>();
     for (int i = 0; i < count; i++) {
-      List<LottoNumber> numbers = numberGenerator.generate();
-      Lotto lotto = new Lotto(numbers);
-      lottos.add(lotto);
+      lottoList.add(new Lotto(numberGenerator.generate()));
     }
+    return new Lottos(lottoList);
+  }
 
-    Lottos output = new Lottos(lottos);
-    outputView.printLottos(output);
-
-    String input = inputView.getWinningNumbers();
-    Lotto winningNumbers = toLotto(input);
+  private ResultDto createResultDto(LottoResult result) {
+    return new ResultDto(
+        result.getWinning3(),
+        result.getWinning4(),
+        result.getWinning5(),
+        result.getWinning6(),
+        result.getRateOfReturn()
+    );
   }
 
   private Lotto toLotto(String input) {
