@@ -9,6 +9,23 @@ public class Lotto {
     this.numbers  = numbers;
   }
 
+  public MatchCount getMatchCount(Lotto winningLotto) {
+    int count = 0;
+    for (LottoNumber number : numbers) {
+      count += winningLotto.match(number);
+    }
+
+    return new MatchCount(count);
+  }
+
+  private int match(LottoNumber number) {
+    if(numbers.contains(number)) {
+      return 1;
+    }
+
+    return 0;
+  }
+
   @Override
   public String toString() {
     return numbers.toString();
