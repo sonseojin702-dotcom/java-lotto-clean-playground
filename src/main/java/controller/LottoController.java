@@ -26,5 +26,25 @@ public class LottoController {
 
     Lottos output = new Lottos(lottos);
     outputView.printLottos(output);
+
+    String input = inputView.getWinningNumbers();
+    Lotto winningNumbers = toLotto(input);
+  }
+
+  private Lotto toLotto(String input) {
+    String[] tokens = input.split(",");
+    List<LottoNumber> numbers = new ArrayList<>();
+    for (String token : tokens) {
+      numbers.add(new LottoNumber(parseNumber(token.trim())));
+    }
+    return new Lotto(numbers);
+  }
+
+  private int parseNumber(String token) {
+    try {
+      return Integer.parseInt(token);
+    } catch (NumberFormatException e) {
+      throw new IllegalArgumentException("당첨 번호는 숫자여야 합니다.");
+    }
   }
 }
