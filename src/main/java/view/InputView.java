@@ -7,13 +7,11 @@ public class InputView {
 
   public String getPurchasePrice() {
     System.out.println("구입금액을 입력해 주세요.");
-    String purchasePrice = scanner.nextLine();
-    return purchasePrice;
+    return scanner.nextLine();
   }
 
   public String getWinningNumbers() {
     System.out.println("지난 주 당첨 번호를 입력해 주세요.");
-    String winningNumbers = scanner.nextLine();
-    return winningNumbers;
+    return scanner.nextLine();
   }
 }
