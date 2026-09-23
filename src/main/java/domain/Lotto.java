@@ -9,13 +9,13 @@ public class Lotto {
     this.numbers  = numbers;
   }
 
-  public MatchCount getMatchCount(Lotto winningLotto) {
+  public int getMatchCount(Lotto winningLotto) {
     int count = 0;
     for (LottoNumber number : numbers) {
       count += winningLotto.match(number);
     }
 
-    return new MatchCount(count);
+    return count;
   }
 
   private int match(LottoNumber number) {
