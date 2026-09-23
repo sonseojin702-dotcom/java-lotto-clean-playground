@@ -13,9 +13,12 @@ public class Application {
     PurchasePrice purchasePrice = new PurchasePrice(value);
     int count = purchasePrice.calculateLottoCount(); //로또 개수
 
+    NumberGenerator numberGenerator = new RandomNumberGenerator();
+
     List<Lotto> lottos = new ArrayList<>();
     for (int i = 0; i < count; i++) {
-      Lotto lotto  = new Lotto(new RandomNumberGenerator());
+      List<Integer> numbers = numberGenerator.generate();
+      Lotto lotto  = new Lotto(numbers);
       lottos.add(lotto);
     }
 
