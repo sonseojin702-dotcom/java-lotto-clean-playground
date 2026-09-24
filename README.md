@@ -19,3 +19,33 @@
    4. 당첨 금액의 총합을 구한다.
    5. 당첨 금액의 총합을 로또 구입 금액으로 나눈다.
    6. 소수점 셋째 자리에서 버림하여 수익률을 출력한다.
+
+
+## 프로젝트 구조
+```
+java
+|   Application.java
+|   
++---controller
+|       LottoController.java
+|       
++---domain
+|   |   NumberGenerator.java
+|   |   RandomNumberGenerator.java
+|   |   
+|   +---purchase
+|   |       Lotto.java
+|   |       LottoNumber.java
+|   |       Lottos.java
+|   |       PurchasePrice.java
+|   |       
+|   \---winning
+|           LottoRank.java
+|           LottoResult.java
+|           RateOfReturn.java
+|           WinningLotto.java
+|           
+\---view
+        InputView.java
+        OutputView.java
+```
