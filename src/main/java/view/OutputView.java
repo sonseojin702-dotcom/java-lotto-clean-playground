@@ -2,7 +2,9 @@ package view;
 
 import domain.purchase.Lotto;
 import domain.purchase.Lottos;
-import dto.ResultDto;
+import domain.winning.LottoRank;
+import domain.winning.LottoResult;
+import domain.winning.RateOfReturn;
 import java.util.List;
 
 public class OutputView {
@@ -20,13 +22,20 @@ public class OutputView {
         System.out.println(lotto);
     }
 
-    public void printResult(ResultDto resultDto) {
+    public void printResult(LottoResult result) {
         System.out.println("당첨 통계");
         System.out.println("---------");
-        System.out.println("3개 일치 (5000원)- " + resultDto.winning3() + "개");
-        System.out.println("4개 일치 (50000원)- " + resultDto.winning4() + "개");
-        System.out.println("5개 일치 (1500000원)- " + resultDto.winning5() + "개");
-        System.out.println("6개 일치 (2000000000원)- " + resultDto.winning6() + "개");
-        System.out.println("총 수익률은 " + resultDto.rateOfReturn() + "입니다.");
+
+        for (LottoRank rank : LottoRank.values()) {
+            if (rank == LottoRank.MISS) {
+                continue;
+            }
+
+            System.out.println(rank.getMatchCount() + "개 일치 (" + rank.getPrize() +"원)- " + result.countOf(rank) + "개");
+        }
+    }
+
+    public void printRateOfReturn(double rateOfReturn) {
+        System.out.println("총 수익률은 " + rateOfReturn + "입니다.");
     }
 }
