@@ -1,7 +1,9 @@
 package domain;
 
 // 구입 금액 원시값 포장
-public record PurchasePrice(int amount) {
+public class PurchasePrice {
+    private final int amount;
+
     public PurchasePrice(String amount) {
         this.amount = parseToInt(amount);
         validate(this.amount);

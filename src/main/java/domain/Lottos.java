@@ -3,7 +3,12 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public record Lottos(List<Lotto> lottos) {
+public class Lottos {
+    private final List<Lotto> lottos;
+
+    public Lottos(List<Lotto> lottos) {
+        this.lottos = lottos;
+    }
 
     public LottoResult getMatchCount(Lotto winningLotto, PurchasePrice purchasePrice) {
         List<Integer> matches = new ArrayList<>();
