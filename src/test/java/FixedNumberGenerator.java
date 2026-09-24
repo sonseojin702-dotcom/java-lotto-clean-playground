@@ -1,4 +1,4 @@
-import domain.LottoNumber;
+import domain.purchase.LottoNumber;
 import domain.NumberGenerator;
 import java.util.List;
 

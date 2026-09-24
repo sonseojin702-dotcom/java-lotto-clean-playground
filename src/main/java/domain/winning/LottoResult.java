@@ -1,5 +1,6 @@
-package domain;
+package domain.winning;
 
+import domain.purchase.PurchasePrice;
 import java.util.List;
 
 public class LottoResult {
@@ -39,7 +40,7 @@ public class LottoResult {
         revenue += winning4 * 50000;
         revenue += winning5 * 1500000;
         revenue += winning6 * 2000000000;
-        double rate = (double) revenue / price.amount();
+        double rate = (double) revenue / price.getAmount();
         return Math.floor(rate * 100) / 100;
     }
 

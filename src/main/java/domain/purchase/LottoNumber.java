@@ -1,4 +1,4 @@
-package domain;
+package domain.purchase;
 
 public class LottoNumber implements Comparable<LottoNumber> {
     private final int value;

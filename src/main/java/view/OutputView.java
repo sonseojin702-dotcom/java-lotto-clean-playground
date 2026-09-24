@@ -1,7 +1,7 @@
 package view;
 
-import domain.Lotto;
-import domain.Lottos;
+import domain.purchase.Lotto;
+import domain.purchase.Lottos;
 import dto.ResultDto;
 import java.util.List;
 

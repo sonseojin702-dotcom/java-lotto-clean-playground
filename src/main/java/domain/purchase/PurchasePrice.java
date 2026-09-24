@@ -1,4 +1,4 @@
-package domain;
+package domain.purchase;
 
 // 구입 금액 원시값 포장
 public class PurchasePrice {
@@ -25,5 +25,9 @@ public class PurchasePrice {
 
     public int calculateLottoCount() {
         return amount / 1000;
+    }
+
+    public int getAmount() {
+        return amount;
     }
 }

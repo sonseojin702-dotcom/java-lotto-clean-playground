@@ -1,11 +1,11 @@
 package controller;
 
-import domain.Lotto;
-import domain.LottoNumber;
-import domain.LottoResult;
-import domain.Lottos;
+import domain.purchase.Lotto;
+import domain.purchase.LottoNumber;
+import domain.winning.LottoResult;
+import domain.purchase.Lottos;
 import domain.NumberGenerator;
-import domain.PurchasePrice;
+import domain.purchase.PurchasePrice;
 import domain.RandomNumberGenerator;
 import dto.ResultDto;
 import java.util.ArrayList;
