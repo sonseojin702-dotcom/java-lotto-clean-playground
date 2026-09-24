@@ -4,7 +4,6 @@ import domain.purchase.Lotto;
 import domain.purchase.Lottos;
 import domain.winning.LottoRank;
 import domain.winning.LottoResult;
-import domain.winning.RateOfReturn;
 import java.util.List;
 
 public class OutputView {
