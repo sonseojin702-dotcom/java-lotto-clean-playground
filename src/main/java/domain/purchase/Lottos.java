@@ -20,4 +20,8 @@ public class Lottos {
 
         return new LottoResult(matches, purchasePrice);
     }
+
+    public List<Lotto> getLottos() {
+        return lottos;
+    }
 }

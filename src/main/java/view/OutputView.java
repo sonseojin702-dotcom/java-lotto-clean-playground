@@ -7,7 +7,7 @@ import java.util.List;
 
 public class OutputView {
     public void printLottos(Lottos lottos) {
-        List<Lotto> lotto = lottos.lottos();
+        List<Lotto> lotto = lottos.getLottos();
         int count = lotto.size();
         System.out.println(count + "개를 구매했습니다.");
 
