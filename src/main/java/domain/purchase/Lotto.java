@@ -19,7 +19,7 @@ public class Lotto {
         return new Lotto(lottoNumbers);
     }
 
-    public int getMatchCount(Lotto winningLotto) {
+    public int countMatches(Lotto winningLotto) {
         int count = 0;
         for (LottoNumber number : numbers) {
             count += winningLotto.match(number);
