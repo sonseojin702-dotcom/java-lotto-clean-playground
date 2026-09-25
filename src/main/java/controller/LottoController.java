@@ -8,6 +8,7 @@ import domain.NumberGenerator;
 import domain.purchase.PurchasePrice;
 import domain.RandomNumberGenerator;
 import domain.winning.RateOfReturn;
+import domain.winning.WinningLotto;
 import java.util.ArrayList;
 import java.util.List;
 import view.InputView;
@@ -23,10 +24,10 @@ public class LottoController {
         outputView.printLottos(lottos);
 
         Lotto winningNumbers = toLotto(inputView.getWinningNumbers());
-        LottoResult result = lottos.getMatchCount(winningNumbers);
+        LottoResult result = new WinningLotto(winningNumbers).match(lottos);
         outputView.printResult(result);
 
-        RateOfReturn rateOfReturn = new RateOfReturn(result.calculatePrize(), purchasePrice);
+        RateOfReturn rateOfReturn = new RateOfReturn(result.calculateTotalPrize(), purchasePrice);
         outputView.printRateOfReturn(rateOfReturn.getValue());
     }
 
