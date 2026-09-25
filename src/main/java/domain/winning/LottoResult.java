@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.EnumMap;
 
 /**
- * 등수 별 일치 번호 개수 계산 및 총 상금 계산
+ * 등수 별 당첨 장수 집계 및 총 상금 계산
  */
 public class LottoResult {
     private final Map<LottoRank, Integer> rankCounts = new EnumMap<>(LottoRank.class);
