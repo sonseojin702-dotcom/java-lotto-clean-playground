@@ -21,7 +21,7 @@ public class LottoResult {
         return rankCounts.getOrDefault(rank, 0);
     }
 
-    public long calculatePrize() {
+    public long calculateTotalPrize() {
         long totalPrize = 0;
         for (Map.Entry<LottoRank,Integer> entry : rankCounts.entrySet()) {
             totalPrize += entry.getKey().calculatePrize(entry.getValue());
