@@ -13,7 +13,7 @@ public class Lottos {
     public List<Integer> countMatches(Lotto winningLotto) {
         List<Integer> matches = new ArrayList<>();
         for (Lotto lotto : lottos) {
-            int count = lotto.getMatchCount(winningLotto);
+            int count = lotto.countMatches(winningLotto);
             matches.add(count);
         }
         return matches;
