@@ -14,7 +14,7 @@ public class PurchasePriceTest {
     void convertStringToInt() {
         String amountString = "100";
         int amount = Integer.parseInt(amountString);
-        assertEquals(amount, 100);
+        assertEquals(100, amount);
     }
 
     @Test
