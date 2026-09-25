@@ -16,10 +16,6 @@ public class WinningLotto {
     }
 
     public LottoResult match(Lottos lottos) {
-        List<Integer> matchCounts = new ArrayList<>();
-        for (Lotto purchasedLotto : lottos.getLottos()) {
-            matchCounts.add(purchasedLotto.getMatchCount(lotto));
-        }
-        return new LottoResult(matchCounts);
+        return new LottoResult(lottos.countMatches(lotto));
     }
 }
