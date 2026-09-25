@@ -2,8 +2,6 @@ package domain.winning;
 
 import domain.purchase.Lotto;
 import domain.purchase.Lottos;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 당첨 번호 보관 및 구매한 로또와 비교
