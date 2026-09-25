@@ -1,6 +1,5 @@
 package domain.purchase;
 
-import domain.winning.LottoResult;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,14 +10,13 @@ public class Lottos {
         this.lottos = lottos;
     }
 
-    public LottoResult getMatchCount(Lotto winningLotto) {
+    public List<Integer> countMatches(Lotto winningLotto) {
         List<Integer> matches = new ArrayList<>();
         for (Lotto lotto : lottos) {
             int count = lotto.getMatchCount(winningLotto);
             matches.add(count);
         }
-
-        return new LottoResult(matches);
+        return matches;
     }
 
     public List<Lotto> getLottos() {
