@@ -14,7 +14,7 @@ public class LottoTest {
         Lotto lotto = Lotto.from(List.of(1, 2, 3, 4, 5, 6));
         Lotto winningLotto = Lotto.from(List.of(7, 8, 9, 10, 11, 12));
 
-        int count = lotto.getMatchCount(winningLotto);
+        int count = lotto.countMatches(winningLotto);
         assertEquals(0, count);
     }
 
@@ -24,7 +24,7 @@ public class LottoTest {
         Lotto lotto = Lotto.from(List.of(1, 2, 3, 4, 5, 6));
         Lotto winningLotto = Lotto.from(List.of(1, 3, 5, 7, 9, 11));
 
-        int count = lotto.getMatchCount(winningLotto);
+        int count = lotto.countMatches(winningLotto);
         assertEquals(3, count);
     }
 
@@ -34,7 +34,7 @@ public class LottoTest {
         Lotto lotto = Lotto.from(List.of(1, 2, 3, 4, 5, 6));
         Lotto winningLotto = Lotto.from(List.of(1, 2, 3, 4, 5, 6));
 
-        int count = lotto.getMatchCount(winningLotto);
+        int count = lotto.countMatches(winningLotto);
         assertEquals(6, count);
     }
 }
