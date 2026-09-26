@@ -19,16 +19,38 @@ public class LottoController {
     private final OutputView outputView = new OutputView();
 
     public void run() {
-        PurchasePrice purchasePrice = new PurchasePrice(inputView.getPurchasePrice());
+        PurchasePrice purchasePrice = readPurchasedPrice();
         Lottos lottos = createLottos(purchasePrice.calculateLottoCount());
         outputView.printLottos(lottos);
 
-        Lotto winningNumbers = toLotto(inputView.getWinningNumbers());
+        Lotto winningNumbers = readWinningNumbers();
         LottoResult result = new WinningLotto(winningNumbers).match(lottos);
         outputView.printResult(result);
 
         RateOfReturn rateOfReturn = new RateOfReturn(result.calculateTotalPrize(), purchasePrice);
         outputView.printRateOfReturn(rateOfReturn.getValue());
+    }
+
+    private PurchasePrice readPurchasedPrice() {
+        while (true) {
+            try {
+                return new PurchasePrice(inputView.getPurchasePrice());
+            }
+            catch(Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    private Lotto readWinningNumbers() {
+        while (true) {
+            try {
+                return toLotto(inputView.getWinningNumbers());
+            }
+            catch (Exception e) {
+                System.out.println(e.getMessage);
+            }
+        }
     }
 
     private Lottos createLottos(int count) {
@@ -46,6 +68,8 @@ public class LottoController {
         for (String token : tokens) {
             numbers.add(new LottoNumber(parseNumber(token.trim())));
         }
+
+
         return new Lotto(numbers);
     }
 
