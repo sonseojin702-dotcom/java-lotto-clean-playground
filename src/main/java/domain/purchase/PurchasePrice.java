@@ -1,6 +1,5 @@
 package domain.purchase;
 
-// 구입 금액 원시값 포장
 public class PurchasePrice {
     private final int amount;
 
@@ -9,7 +8,7 @@ public class PurchasePrice {
         validate(this.amount);
     }
 
-    public int parseToInt(String input) {
+    private int parseToInt(String input) {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
@@ -17,7 +16,7 @@ public class PurchasePrice {
         }
     }
 
-    public void validate(int amount) {
+    private void validate(int amount) {
         if (amount < 1000) {
             throw new IllegalArgumentException("로또 최소 구매 금액은 1000원입니다.");
         }
