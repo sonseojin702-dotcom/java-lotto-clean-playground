@@ -31,7 +31,6 @@ public class Lotto {
         for (Integer number : numbers) {
             lottoNumbers.add(new LottoNumber(number));
         }
-
         return new Lotto(lottoNumbers);
     }
 
@@ -40,7 +39,6 @@ public class Lotto {
         for (LottoNumber number : numbers) {
             count += winningLotto.match(number);
         }
-
         return count;
     }
 
@@ -48,7 +46,6 @@ public class Lotto {
         if (numbers.contains(number)) {
             return 1;
         }
-
         return 0;
     }
 
